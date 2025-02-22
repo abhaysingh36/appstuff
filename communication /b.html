@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Feed</title>
+</head>
+<body>
+    <h1>Live Feed with YOLO Detections</h1>
+    <img id="live-feed-img" src="" alt="Live Feed">
+    
+    <script>
+        // Fetch the live feed image
+        fetch('/request_live_feed')
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Set the image source to the base64 string
+                    document.getElementById('live-feed-img').src = 'data:image/jpeg;base64,' + data.image;
+                } else {
+                    console.error('Error fetching image:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "python.pythonPath": "/home/asdf/vpy/bin/python3",
+  "terminal.integrated.env.linux": {
+      "TORCH_HOME": "${workspaceFolder}/torch_cache"
+  }
+}
